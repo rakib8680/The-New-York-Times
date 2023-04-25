@@ -5,7 +5,7 @@ import Header from './pages/Header';
 
 const App = () => {
   return (
-    <div className=' container mx-auto'>
+    <div className=' container mx-auto my-20'>
       <Header></Header>
       <Outlet></Outlet>
       <Footer></Footer>
