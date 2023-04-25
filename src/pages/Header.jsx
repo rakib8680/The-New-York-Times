@@ -9,32 +9,32 @@ const Header = () => {
             <div className='text-center space-y-4 my-5'>
                 <img src={logo} className='mx-auto' />
                 <p className='text-secondary'>Journalism Without Fear or Favour</p>
-                <p className='text-warning'>{moment().format("dddd, MMMM Do, YYYY")}</p>
+                <p className='text-primary'>{moment().format("dddd, MMMM Do, YYYY")}</p>
             </div>
             <div className='flex bg-neutral py-4 ps-4 pe-24 gap-4 rounded-md'>
                 <button className='btn btn-error btn-sm px-4 pt-3 pb-6'>Latest</button>
-                <Marquee className='font-semibold text-lg text-accent' pauseOnHover speed={80}  gradientColor={[30, 40, 46]}>
+                <Marquee className='font-semibold text-lg text-accent' pauseOnHover speed={80} gradient={true} gradientColor={[30, 40, 46]}>
                     Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as.....
                     Match Highlights: Germany vs Spain — as it happened   !
                 </Marquee>
             </div>
             <nav>
-                <nav className="navbar bg-base shadow-lg  my-5">
+                <nav className="navbar bg-base shadow-lg  my-5 px-3">
                     <div className="container mx-auto ">
 
                         <ul className="navbar-nav flex mx-auto">
                             <li className="nav-item">
-                                <NavLink  to="/home" className="nav-link text-secondary mx-4 hover:text-indigo-500">
+                                <NavLink to="/home" className="nav-link text-secondary mx-4 hover:text-indigo-500">
                                     Home
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink  to="/about" className="nav-link text-secondary mx-4 hover:text-indigo-500">
+                                <NavLink to="/about" className="nav-link text-secondary mx-4 hover:text-indigo-500">
                                     About
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink  to="/career" className="nav-link text-secondary mx-4 hover:text-indigo-500">
+                                <NavLink to="/career" className="nav-link text-secondary mx-4 hover:text-indigo-500">
                                     Career
                                 </NavLink>
                             </li>
