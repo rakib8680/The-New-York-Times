@@ -15,7 +15,6 @@ const Home = () => {
                 <div className='col-span-2'>
                     <RightNav></RightNav>
                 </div>
-
             </div>
         </div>
     );
