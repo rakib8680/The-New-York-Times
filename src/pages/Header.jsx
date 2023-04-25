@@ -19,7 +19,7 @@ const Header = () => {
                 </Marquee>
             </div>
             <nav>
-                <nav className="navbar bg-base shadow-lg  my-5 px-3">
+                <nav className="navbar bg-base shadow-md rounded-md my-5 px-3">
                     <div className="container mx-auto ">
 
                         <ul className="navbar-nav flex mx-auto">

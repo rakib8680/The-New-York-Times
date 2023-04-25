@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaGoogle, FaGithub, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import Qzone from './Qzone';
 
 const RightNav = () => {
     return (
@@ -17,7 +18,12 @@ const RightNav = () => {
                     <button className="btn btn-outline btn-error" ><FaInstagram className='text-xl mr-2' />  Instagram</button>
                 </div>
             </div>
+            <Qzone></Qzone>
+            <div style={
+                backgroundImage = url('../assets/bg.png')}>
+            <h1>afads</h1>
         </div>
+        </div >
     );
 };
 
