@@ -19,10 +19,10 @@ const RightNav = () => {
                 </div>
             </div>
             <Qzone></Qzone>
-            <div style={
+            {/* <div style={
                 backgroundImage = url('../assets/bg.png')}>
             <h1>afads</h1>
-        </div>
+        </div> */}
         </div >
     );
 };

@@ -3,11 +3,14 @@ import React from 'react';
 import Marquee from 'react-fast-marquee';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png'
+import logo2 from '../assets/the-new-york-times-logo.svg'
+
+
 const Header = () => {
     return (
         <div>
             <div className='text-center space-y-4 my-5'>
-                <img src={logo} className='mx-auto' />
+                <img src={logo2} className='mx-auto w-[480px] opacity-80' />
                 <p className='text-secondary'>Journalism Without Fear or Favour</p>
                 <p className='text-primary'>{moment().format("dddd, MMMM Do, YYYY")}</p>
             </div>
