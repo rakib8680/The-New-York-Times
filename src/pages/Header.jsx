@@ -2,7 +2,6 @@ import moment from 'moment';
 import React from 'react';
 import Marquee from 'react-fast-marquee';
 import { NavLink } from 'react-router-dom';
-import logo from '../assets/logo.png'
 import logo2 from '../assets/the-new-york-times-logo.svg'
 
 
@@ -44,7 +43,7 @@ const Header = () => {
                         </ul>
                         <div className=' flex items-center rounded-md'>
                             <p className='text-secondary mx-4'>Profile</p>
-                            <button className="btn  btn-info ">
+                            <button className="btn  btn-info btn-xs md:btn-md">
                                 Login
                             </button>
                         </div>

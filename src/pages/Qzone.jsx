@@ -7,7 +7,7 @@ import QZone3 from '../assets/qZone3.png'
 
 const Qzone = () => {
     return (
-        <div className='bg-slate-100 py-5 px-4 rounded-lg'>
+        <div className='bg-slate-100 py-5 px-4 rounded-lg flex flex-col items-center md:block'>
             <h1 className='text-left text-xl font-bold mb-5 text-secondary'>Q-Zone</h1>
             <img src={QZone1} />
             <img src={QZone2} />
