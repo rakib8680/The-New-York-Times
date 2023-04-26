@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaGoogle, FaGithub, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import Qzone from './Qzone';
+import bg from '../assets/bg.png'
 
 const RightNav = () => {
     return (
@@ -19,10 +20,16 @@ const RightNav = () => {
                 </div>
             </div>
             <Qzone></Qzone>
-            {/* <div style={
-                backgroundImage = url('../assets/bg.png')}>
-            <h1>afads</h1>
-        </div> */}
+            <div className='relative'>
+                <div>
+                    <img src={bg} className="rounded-xl" />
+                </div>  
+                <div className='absolute top-16 text-slate-100 p-4 space-y-7'>
+                    <h1 className='text-3xl font-black leading-relaxed'>Create an Amazing Newspaper</h1>
+                    <p className='text-slate-200'>Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</p>
+                    <button className='btn btn-info text-white hover:btn-primary'>Learn More</button>
+                </div>
+            </div>
         </div >
     );
 };
