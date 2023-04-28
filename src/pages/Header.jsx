@@ -1,11 +1,16 @@
 import moment from 'moment';
-import React from 'react';
+import React, { useContext } from 'react';
 import Marquee from 'react-fast-marquee';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo2 from '../assets/the-new-york-times-logo.svg'
+import { AuthContext } from '../providers/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa'
 
 
 const Header = () => {
+
+    const {user} = useContext(AuthContext)
+
     return (
         <div>
             <div className='text-center space-y-4 my-5'>
@@ -26,7 +31,7 @@ const Header = () => {
 
                         <ul className="navbar-nav flex mx-auto">
                             <li className="nav-item">
-                                <NavLink to="/home" className="nav-link text-secondary mx-4 hover:text-indigo-500">
+                                <NavLink to="/category/0" className="nav-link text-secondary mx-4 hover:text-indigo-500">
                                     Home
                                 </NavLink>
                             </li>
@@ -42,10 +47,18 @@ const Header = () => {
                             </li>
                         </ul>
                         <div className=' flex items-center rounded-md'>
-                            <p className='text-secondary mx-4'>Profile</p>
-                            <button className="btn  btn-info btn-xs md:btn-md">
-                                Login
-                            </button>
+                            {
+                                user && 
+                                <p className='text-primary mx-4 hover:text-opacity-80'><FaUserCircle className='w-[30px] h-[30px] cursor-pointer ' /></p>
+                            }
+                            {user ?
+                                <button className="btn  btn-info btn-xs md:btn-md">Log Out</button>
+                                :
+                                <>
+                                <Link className="btn  btn-info btn-xs md:btn-md" to="/login">Login</Link>
+                                <Link className="btn  btn-accent btn-xs md:btn-md ml-3" to="/register">Register</Link>
+                                </>
+                                }
                         </div>
                     </div>
                 </nav>
