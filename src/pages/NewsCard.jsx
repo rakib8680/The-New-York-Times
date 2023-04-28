@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaBookmark, FaShareAlt } from 'react-icons/fa';
+import { FaBookmark, FaEye, FaRegStar, FaShareAlt, FaStar } from 'react-icons/fa';
 import moment from 'moment';
+import Rating from 'react-rating';
 
 const NewsCard = ({ item }) => {
 
-    const { _id, title, details, image_url, author,total_view, rating } = item
+    const { _id, title, details, image_url, author, total_view, rating } = item
 
     return (
         <div >
@@ -45,16 +46,21 @@ const NewsCard = ({ item }) => {
                                 #education
                             </span>
                         </div>
-                        <div className="flex items-center mt-2">
-                            <img className='w-10 h-10 object-cover rounded-full' alt='User avatar' src='' />
-
-                            <div className="pl-3">
-                                <div className="font-medium">
-                                    Jean Marc
-                                </div>
-                                <div className="text-gray-600 text-sm">
-                                    CTO of Supercars
-                                </div>
+                        <div className="flex justify-between items-center mt-2 ">
+                            <div className='flex items-center'>
+                                <Rating
+                                    readonly
+                                    placeholderRating={rating.number}
+                                    emptySymbol={<FaRegStar />}
+                                    placeholderSymbol={<FaStar />}
+                                    fullSymbol={<FaStar />}
+                                />
+                                <span className="text-base text-slate-500 ms-2">
+                                    {rating.number}
+                                </span>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <FaEye /> {total_view}
                             </div>
                         </div>
                     </div>
