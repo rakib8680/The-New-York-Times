@@ -9,7 +9,15 @@ import { FaUserCircle } from 'react-icons/fa'
 
 const Header = () => {
 
-    const {user} = useContext(AuthContext)
+    const { user, logOutUser } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOutUser()
+        .then(()=>{
+            console.log('Logged out');
+        })
+        .catch(err => console.log(err.message))
+    }
 
     return (
         <div>
@@ -48,17 +56,17 @@ const Header = () => {
                         </ul>
                         <div className=' flex items-center rounded-md'>
                             {
-                                user && 
+                                user &&
                                 <p className='text-primary mx-4 hover:text-opacity-80'><FaUserCircle className='w-[30px] h-[30px] cursor-pointer ' /></p>
                             }
                             {user ?
-                                <button className="btn  btn-info btn-xs md:btn-md">Log Out</button>
+                                <button className="btn  btn-info btn-xs md:btn-md" onClick={handleLogOut}>Log Out</button>
                                 :
                                 <>
-                                <Link className="btn  btn-info btn-xs md:btn-md" to="/login">Login</Link>
-                                <Link className="btn  btn-accent btn-xs md:btn-md ml-3" to="/register">Register</Link>
+                                    <Link className="btn  btn-info btn-xs md:btn-md" to="/login">Login</Link>
+                                    <Link className="btn  btn-accent btn-xs md:btn-md ml-3" to="/register">Register</Link>
                                 </>
-                                }
+                            }
                         </div>
                     </div>
                 </nav>

@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Login = () => {
+
+    const { signInUser } = useContext(AuthContext)
+
+    const handleSignIn = event => {
+        event.preventDefault();
+        const from = event.target
+        const email = from.email.value
+        const password = from.password.value
+
+        // sign in 
+        signInUser(email, password)
+            .then(result => {
+                const loggedUser = result.user
+                console.log(loggedUser)
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
+
+    }
+
+
+
+
     return (
         <div
             className="grid mt-28 w-screen place-items-center px-4 text-sm font-medium"
         >
             <div className="w-full max-w-sm rounded-lg bg-slate-300/30 shadow">
-                <form className="p-4 md:p-5 lg:p-6">
+                <form className="p-4 md:p-5 lg:p-6" onSubmit={handleSignIn}>
                     <div className="grid gap-y-3">
                         <button
                             className="flex items-center justify-center gap-x-2 rounded-md border border-slate-600 bg-slate-200 py-3 px-4 text-slate-700 transition hover:text-secondary"
@@ -67,21 +92,7 @@ const Login = () => {
                         <button
                             className="flex items-center justify-center gap-x-2 rounded-md border border-slate-600 bg-slate-200 py-3 px-4 text-slate-700 transition hover:text-secondary"
                         >
-                            <svg
-                                // style="color: rgb(203, 213, 225)"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="18"
-                                height="18"
-                                fill="currentColor"
-                                className="bi bi-envelope"
-                                viewBox="0 0 16 16"
-                            >
-                                <path
-                                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
-                                    fill="#708090"
-                                ></path>
-                            </svg>
-                            Sign in with Email
+                            Login
                         </button>
                     </div>
                     <p className='text-xs text-center mt-5'>Don't have an account ? <Link to="/register" className='text-secondary'>Register</Link></p>
