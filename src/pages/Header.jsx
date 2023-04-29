@@ -1,7 +1,7 @@
 import moment from 'moment';
 import React, { useContext } from 'react';
 import Marquee from 'react-fast-marquee';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink,  } from 'react-router-dom';
 import logo2 from '../assets/the-new-york-times-logo.svg'
 import { AuthContext } from '../providers/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa'

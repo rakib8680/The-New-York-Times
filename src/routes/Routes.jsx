@@ -7,6 +7,7 @@ import LoginLayout from "../pages/LoginLayout";
 import News from "../pages/News";
 import NewsDetails from "../pages/NewsDetails";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/news',
-        element: <News></News>,
+        element: <PrivateRoute><News></News></PrivateRoute>,
         children: [
             {
                 path: ':id',
