@@ -1,5 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "../App";
+import About from "../pages/About";
+import Career from "../pages/Career";
 import Category from "../pages/Category";
 import ErrorPage from "../pages/ErrorPage";
 import Login from "../pages/Login";
@@ -27,7 +29,14 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
-            }
+            },
+            {
+                path: 'about',
+                element : <About></About>
+            },
+            {
+                path: 'career',
+                element : <Career></Career>            }
         ]
     },
     {
@@ -38,7 +47,7 @@ const router = createBrowserRouter([
             {
                 path: ':id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
+                loader: ({ params }) => fetch(`https://the-dragon-news-server-rakib8680.vercel.app/categories/${params.id}`)
             }
         ]
     },
@@ -49,7 +58,7 @@ const router = createBrowserRouter([
             {
                 path: ':id',
                 element: <NewsDetails></NewsDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
+                loader: ({ params }) => fetch(`https://the-dragon-news-server-rakib8680.vercel.app/news/${params.id}`)
             }
         ]
     }
