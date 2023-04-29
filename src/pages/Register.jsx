@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
+
+
 const Register = () => {
 
     const { registerUser } = useContext(AuthContext);
@@ -14,8 +16,39 @@ const Register = () => {
         const email = form.email.value
         const password = form.password.value
         const confirm = form.confirm.value
-        console.log(name, photo, email, password);
+
+
+
+        // password validation
+        if (!/(?=.*[A-Z])/.test(password)) {
+            // setError('Please provide one upperCase word')
+            return
+        }
+        else if (!/(?=.*[0-9])/.test(password)) {
+            // setError('Please provide at least one number')
+            return
+        }
+        else if (password.length < 6) {
+            // setError('Password must be 6 characters or above')
+            return
+        }
+        else if (password != confirm) {
+            // setError("Password didn't matched");
+            return
+        }
+
+        registerUser(email, password)
+            .then(result => {
+                const createdUser = result.user
+                console.log(createdUser)
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
     }
+
+
+
 
 
 
@@ -59,7 +92,7 @@ const Register = () => {
                         </div>
                         <button
                             className="flex items-center justify-center gap-x-2 rounded-md border border-slate-600 bg-slate-200 py-3 px-4 text-slate-700 transition hover:text-secondary"
-                        > 
+                        >
                             Register
                         </button>
                     </div>
