@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
@@ -7,6 +7,13 @@ import { AuthContext } from '../providers/AuthProvider';
 const Register = () => {
 
     const { registerUser } = useContext(AuthContext);
+    const [accept, setAccept] = useState(false);
+
+
+    const handleTerms = event => {
+        setAccept(event.target.checked);
+    }
+
 
     const handleRegistration = event => {
         event.preventDefault()
@@ -87,11 +94,11 @@ const Register = () => {
                             placeholder="confirm password" type='password' name='confirm' required
                         />
                         <div>
-                            <input type="checkbox" name="accept" id="" />
+                            <input type="checkbox" name="accept" id="" onClick={handleTerms} />
                             <label htmlFor="" className='text-xs text-slate-500 ms-3'>Accept Terms and Conditions</label>
                         </div>
                         <button
-                            className="flex items-center justify-center gap-x-2 rounded-md border border-slate-600 bg-slate-200 py-3 px-4 text-slate-700 transition hover:text-secondary"
+                            className="flex items-center justify-center gap-x-2 rounded-md border border-slate-600 bg-slate-200 py-3 px-4 text-slate-700 transition hover:text-secondary disabled:cursor-not-allowed" disabled ={!accept}
                         >
                             Register
                         </button>
